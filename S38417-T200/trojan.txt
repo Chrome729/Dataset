@@ -1,0 +1,17 @@
+NOR2X0 Trojan1 (.IN1(n2459), .IN2(n2309), .QN(Tj_OUT1));
+NOR2X0 Trojan2 (.IN1(n2237), .IN2(n2279), .QN(Tj_OUT2));
+NOR2X0 Trojan3 (.IN1(n2381), .IN2(n2207), .QN(Tj_OUT3));
+NOR2X0 Trojan4 (.IN1(n2542), .IN2(n2489), .QN(Tj_OUT4));
+AND4X1 Trojan1234 (.IN1(Tj_OUT1), .IN2(Tj_OUT1), .IN3(Tj_OUT3), .IN4(Tj_OUT4), .Q(Tj_OUT1234));
+
+OR2X1 Trojan5 (.IN1(n3260), .IN2(n3301), .Q(Tj_OUT5));
+OR2X1 Trojan6 (.IN1(n3380), .IN2(n3341), .Q(Tj_OUT6));
+OR2X1 Trojan7 (.IN1(n3374), .IN2(n3293), .Q(Tj_OUT7));
+OR2X1 Trojan8 (.IN1(n3334), .IN2(n1591), .Q(Tj_OUT8));
+AND4X1 Trojan5678 (.IN1(Tj_OUT5), .IN2(Tj_OUT6), .IN3(Tj_OUT7), .IN4(Tj_OUT8), .Q(Tj_OUT5678));
+
+AND2X1 Trojan_Trigger (.IN1(Tj_OUT1234), .IN2(Tj_OUT5678), .Q(Tj_Trigger) );
+OR2X1 Trojan_Payload_1 (.IN1(Tj_Trigger), .IN2(n4149), .Q(n4149_Tj_Payload));
+OR2X1 Trojan_Payload_2 (.IN1(Tj_Trigger), .IN2(n4161), .Q(n4161_Tj_Payload));
+OR2X1 Trojan_Payload_3 (.IN1(Tj_Trigger), .IN2(n4160), .Q(n4160_Tj_Payload));
+OR2X1 Trojan_Payload_4 (.IN1(Tj_Trigger), .IN2(n4122), .Q(n4122_Tj_Payload));

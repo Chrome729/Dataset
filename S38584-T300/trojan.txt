@@ -1,0 +1,2 @@
+HighActiveRegionDetection TrojanTrigger (CK, g26963, g34629, g25757, g34640, g34628, g26888, g34635, g34619, Tj_Trigger);
+MUX21X1 Trojan_Paylod ( .IN1(g10122_Tj), .IN2(g25715), .S(Trigger_out), .Q(g10122) );

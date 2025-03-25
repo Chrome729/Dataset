@@ -1,0 +1,9 @@
+AND2X1 Trojan1 (.IN1(Tj_TriggerIN1), .IN2(Tj_TriggerIN2), .Q(Tj_OUT1));
+AND2X1 Trojan2 (.IN1(Tj_TriggerIN3), .IN2(Tj_TriggerIN4), .Q(Tj_OUT2));
+AND2X1 Trojan3 (.IN1(Tj_TriggerIN5), .IN2(Tj_TriggerIN6), .Q(Tj_OUT3));
+AND2X1 Trojan4 (.IN1(Tj_TriggerIN7), .IN2(Tj_TriggerIN8), .Q(Tj_OUT4));
+NOR4X0 Trojan1234_NOT (.IN1(Tj_OUT1), .IN2(Tj_OUT1), .IN3(Tj_OUT3), .IN4(Tj_OUT4), .QN(Tj_OUT1234));
+AND2X1 Trojan5 (.IN1(Tj_TriggerIN9), .IN2(Tj_TriggerIN10), .Q(Tj_OUT5));
+INVX0 NOT_test_se ( .IN(test_se), .QN(test_se_NOT) );
+AND3X1 Trojan_Trigger ( .IN1(Tj_OUT1234), .IN2(Tj_OUT5), .IN3(test_se_NOT), .Q(Tj_Trigger) );
+OR2X1 Trojan_Payload (.IN1(Tj_Trigger), .IN2(g34028), .Q(g34028_Tj_Payload));
